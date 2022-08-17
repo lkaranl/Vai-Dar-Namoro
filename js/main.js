@@ -34,10 +34,15 @@ function trocar(){
 
     document.getElementById(idBotao).src=ImgSrcArray[currentImgIndex];
     currentImgIndex++;
-    setTimeout(function() {
-        document.getElementById(idBotao).src='images/botao.png'; //altera a img do elemento "agni" de acordo com o indice
-    }, 1000);
+
     });
+}
+
+function limpar(){
+    for(let i = 0; i < audios.length; i++){
+        let idBtn = 'botao'+i;
+        document.getElementById(idBtn).src='images/botao.png'; //altera a img do elemento "agni" de acordo com o indice
+    }
 }
 
 const botoes = document.querySelectorAll('.botao');
@@ -57,7 +62,10 @@ botoes.forEach(botao => {
         audioTag.setAttribute('src', som.caminho);
         audioTag.addEventListener('loadeddata', () => {
             audioTag.play().then(r => {
-
+                setTimeout(function() {
+                    document.getElementById(idBotao).src='images/botao.png'; //altera a img do elemento "agni" de acordo com o indice
+                    limpar()
+                }, 1000);
             });
         });
 
