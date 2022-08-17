@@ -61,9 +61,8 @@ botoes.forEach(botao => {
         let som = audios[botao.getAttribute('data-item')];
         audioTag.setAttribute('src', som.caminho);
         audioTag.addEventListener('loadeddata', () => {
-            audioTag.play().then(r => {
-                setTimeout(function() {
-                    document.getElementById(idBotao).src='images/botao.png'; //altera a img do elemento "agni" de acordo com o indice
+            audioTag.play().then(async r => {
+                setTimeout(await function () {
                     limpar()
                 }, 1000);
             });
