@@ -3,7 +3,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', serif;
 }
 
 html {
@@ -22,9 +22,7 @@ body {
 .faro {
     width: 340px;
     display: flex;
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 15px;
+    margin: 30px auto 15px;
 }
 
 .botao {
@@ -34,12 +32,11 @@ body {
 }
 
 .btn {
-    margin-top: 22px;
+    margin: 22px auto auto;
     display:grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr ;
     align-items: center;
     width: 1000px;
-    margin:  auto;
     text-align: center;
 }
 

@@ -1,4 +1,4 @@
-let audios = [
+const audios = [
     {caminho:'audios/Ai.mp3', legenda: 'Ai'},
     {caminho:'audios/Aiaiaii.mp3', legenda: 'Aiaiaii'},
     {caminho:'audios/Cavalo.mp3', legenda: 'Cavalo'},
@@ -19,15 +19,15 @@ let audios = [
     {caminho:'audios/Xiiii.mp3', legenda: 'Xiiii.mp3'},
 ];
 
-let botoes = document.querySelectorAll('.botao');
-let legendas = document.querySelectorAll('p');
+const botoes = document.querySelectorAll('.botao');
+const legendas = document.querySelectorAll('p');
 
 for (let i=0; i < 18; i++){
     legendas[i].textContent = audios[i].legenda;
     botoes[i].setAttribute('data-item', i);
 }
 
-let audioTag = document.querySelector('audio');
+const audioTag = document.querySelector('audio');
 
 botoes.forEach(botao => {
     botao.addEventListener('click', () => {
@@ -35,7 +35,7 @@ botoes.forEach(botao => {
         audioTag.setAttribute('src', som.caminho);
         
         audioTag.addEventListener('loadeddata', () => {
-            audioTag.play();
+            audioTag.play().then(r => {});
         });
     });
 });
