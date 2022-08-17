@@ -19,6 +19,27 @@ const audios = [
     {caminho:'audios/Xiiii.mp3', legenda: 'Xiiii.mp3'},
 ];
 
+function trocar(){
+    let currentImgIndex=1;
+    const ImgSrcArray = [ //caminho das suas imgs aqui
+        'images/botao3.png',
+    ];
+    const el = document.getElementById('btn');
+    el.addEventListener('click', function(e) {
+        idBotao = e.target.id;
+
+    if(currentImgIndex === ImgSrcArray.length) {
+        currentImgIndex=0;
+    }
+
+    document.getElementById(idBotao).src=ImgSrcArray[currentImgIndex];
+    currentImgIndex++;
+    setTimeout(function() {
+        document.getElementById(idBotao).src='images/botao.png'; //altera a img do elemento "agni" de acordo com o indice
+    }, 1000);
+    });
+}
+
 const botoes = document.querySelectorAll('.botao');
 const legendas = document.querySelectorAll('p');
 
@@ -29,13 +50,17 @@ for (let i=0; i < 18; i++){
 
 const audioTag = document.querySelector('audio');
 
+
 botoes.forEach(botao => {
     botao.addEventListener('click', () => {
         let som = audios[botao.getAttribute('data-item')];
         audioTag.setAttribute('src', som.caminho);
-        
         audioTag.addEventListener('loadeddata', () => {
-            audioTag.play().then(r => {});
+            audioTag.play().then(r => {
+
+            });
         });
+
     });
+
 });
